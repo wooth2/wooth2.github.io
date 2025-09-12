@@ -48,8 +48,10 @@ function render() {
 
 // Resize viewport when window size changes
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+        // 창 크기 중 작은 면을 기준으로 정사각형 유지
+    const size = Math.min(window.innerWidth, window.innerHeight);
+    canvas.width = size;
+    canvas.height = size;
     gl.viewport(0, 0, canvas.width, canvas.height);
     render();
 });
