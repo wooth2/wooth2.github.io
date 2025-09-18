@@ -21,6 +21,8 @@ render();
 
 // Render loop
 function render() {
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    
     gl.scissor(0, 0, canvas.width/2, canvas.height/2);
     gl.clearColor(0, 0, 1, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);    
