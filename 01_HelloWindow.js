@@ -12,7 +12,7 @@ canvas.height = 500;
 
 // Initialize WebGL settings: viewport and clear color
 gl.viewport(0, 0, canvas.width, canvas.height);
-gl.clearColor(0, 0, 0, 1.0);
+gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
 gl.enable(gl.SCISSOR_TEST); // render() 를 call하기 전 gl.enable(....); 로 무엇인가를 enable 시켜야 합니다.
 
