@@ -36,7 +36,7 @@ function render() {
     gl.clear(gl.COLOR_BUFFER_BIT);    
 
     gl.scissor(canvas.width/2, canvas.height/2, canvas.width/2, canvas.height/2);
-    gl.clearColor(1.0, 0.0, 0.0, 1.0); // R
+    gl.clearColor(1.0, 0.0, 1.0, 1.0); // R
     gl.clear(gl.COLOR_BUFFER_BIT);    
     // Draw something here
 }
