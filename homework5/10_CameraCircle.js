@@ -74,6 +74,3 @@ function render(timeMs) {
 
   requestAnimationFrame(render);
 }
-
-// 모듈로 로드되므로 즉시 호출
-main();
