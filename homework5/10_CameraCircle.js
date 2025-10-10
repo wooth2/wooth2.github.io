@@ -11,7 +11,7 @@
 
 import { resizeAspectRatio, Axes } from '../util/util.js';
 import { Shader, readShaderFile } from '../util/shader.js';
-import { SquarePyramid } from './squarePyramid.js';
+import { SquarePyramid } from './SquarePyramid.js'; // NOTE: case-sensitive path
 
 const canvas = document.getElementById('glCanvas');
 const gl = canvas.getContext('webgl2');
@@ -48,11 +48,12 @@ function initWebGL() {
     console.error('WebGL 2 is not supported by your browser.');
     return false;
   }
+  // 1) canvas 크기 700 x 700
   canvas.width = 700;
   canvas.height = 700;
   resizeAspectRatio(gl, canvas);
   gl.viewport(0, 0, canvas.width, canvas.height);
-  gl.clearColor(0.7, 0.8, 0.9, 1.0);
+  gl.clearColor(0.09, 0.14, 0.2, 1.0);
   gl.enable(gl.DEPTH_TEST);
   return true;
 }
@@ -65,13 +66,12 @@ async function initShader() {
 
 function render() {
   const now = Date.now();
-  const deltaTime = (now - lastFrameTime) / 1000.0;
   const t = (now - startTime) / 1000.0;  // seconds from start
   lastFrameTime = now;
 
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  // 사각뿔은 고정 (model = I). 필요 시 매 프레임 재설정해서 누적오차 방지
+  // 사각뿔은 고정 (model = I). 매 프레임 재설정해서 누적오차 방지
   mat4.identity(modelMatrix);
 
   // --- Camera path ---
@@ -82,10 +82,11 @@ function render() {
   const phi = glMatrix.toRadian(CAM_Y_SPEED_DEG) * t;
   const camY = CAM_Y_CENTER + CAM_Y_AMP * Math.sin(phi); // 0~10
 
+  // 항상 원점(피라미드 중심)을 바라봄
   mat4.lookAt(
     viewMatrix,
     vec3.fromValues(camX, camY, camZ),
-    vec3.fromValues(0, 0.5, 0), // 약간 가운데(밑면 중심과 꼭짓점 중간)로 보도록 해도 OK
+    vec3.fromValues(0, 0, 0),
     vec3.fromValues(0, 1, 0)
   );
 
@@ -96,7 +97,7 @@ function render() {
   shader.setMat4('u_projection', projMatrix);
   pyramid.draw();
 
-  // --- Draw axes ---
+  // --- Draw axes (for debugging/visualization) ---
   axes.draw(viewMatrix, projMatrix);
 
   requestAnimationFrame(render);
