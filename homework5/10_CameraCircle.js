@@ -74,3 +74,5 @@ function render(timeMs) {
 
   requestAnimationFrame(render);
 }
+
+main();
