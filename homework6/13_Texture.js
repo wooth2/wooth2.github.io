@@ -30,7 +30,7 @@ const pyramid = new SquarePyramid(gl);
 const arcball = new Arcball(canvas, 5.0, { rotation: 2.0, zoom: 0.0005 });
 
 // Load a single texture image
-const texture = loadTexture(gl, false, '../images/textures/sunrise.jpg'); // see util/texture.js
+const texture = loadTexture(gl, false, 'sunrise.jpg'); // see util/texture.js
 
 document.addEventListener('DOMContentLoaded', () => {
   if (isInitialized) return;
