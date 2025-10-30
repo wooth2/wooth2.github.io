@@ -22,7 +22,7 @@ let modelMatrix = mat4.create();
 
 const pyramid = new SquarePyramid(gl);
 const axes = new Axes(gl, 2.2); // create an Axes object with the length of axis 2.2
-const texture = loadTexture(gl, true, '../images/textures/sunrise.jpg'); // see ../util/texture.js
+const texture = loadTexture(gl, true, './sunrise.jpg');
 
 // Arcball object: initial distance 5.0, rotation sensitivity 2.0, zoom sensitivity 0.0005
 // default of rotation sensitivity = 1.5, default of zoom sensitivity = 0.001
