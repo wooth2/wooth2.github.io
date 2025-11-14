@@ -191,20 +191,20 @@ const controls = new (function () {
   this.marsOrbitSpeed = 0.008;
 })();
 
-guiCamera.add(controls, 'switchCamera');
+guiCamera.add(controls, 'Switch Camera Type');
 guiCamera.add(controls, 'perspective').listen();
 
-guiMercury.add(controls, 'mercuryRotationSpeed', 0, 0.1, 0.01);
-guiMercury.add(controls, 'mercuryOrbitSpeed', 0, 0.1, 0.01);
+guiMercury.add(controls, 'Rotation Speed', 0, 0.1, 0.01);
+guiMercury.add(controls, 'Orbit Speed', 0, 0.1, 0.01);
 
-guiVenus.add(controls, 'venusRotationSpeed', 0, 0.1, 0.01);
-guiVenus.add(controls, 'venusOrbitSpeed', 0, 0.1, 0.01);
+guiVenus.add(controls, 'Rotation Speed', 0, 0.1, 0.01);
+guiVenus.add(controls, 'Orbit Speed', 0, 0.1, 0.01);
 
-guiEarth.add(controls, 'earthRotationSpeed', 0, 0.1, 0.01);
-guiEarth.add(controls, 'earthOrbitSpeed', 0, 0.1, 0.01);
+guiEarth.add(controls, 'Rotation Speed', 0, 0.1, 0.01);
+guiEarth.add(controls, 'Orbit Speed', 0, 0.1, 0.01);
 
-guiMars.add(controls, 'marsRotationSpeed', 0, 0.1, 0.01);
-guiMars.add(controls, 'marsOrbitSpeed', 0, 0.1, 0.01);
+guiMars.add(controls, 'Rotation Speed', 0, 0.1, 0.01);
+guiMars.add(controls, 'Orbit Speed', 0, 0.1, 0.01);
 
 // 회전/공전 상태 값
 const mercuryRotation = { x: 0, y: 0, z: 0 };
@@ -253,3 +253,5 @@ function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
 }
+
+render();
