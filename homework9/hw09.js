@@ -19,10 +19,10 @@ scene.add(camera);
 
 // Texture
 const textureLoader = new THREE.TextureLoader();
-const mercuryTexture = textureLoader.load('./mercury.jpg');
-const venusTexture = textureLoader.load('./venus.jpg');
-const earthTexture = textureLoader.load('./earth.jpg');
-const marsTexture = textureLoader.load('./mars.jpg');
+const mercuryTexture = textureLoader.load('./Mercury.jpg');
+const venusTexture = textureLoader.load('./Venus.jpg');
+const earthTexture = textureLoader.load('./Earth.jpg');
+const marsTexture = textureLoader.load('./Mars.jpg');
 
 // Renderer
 const renderer = new THREE.WebGLRenderer();
