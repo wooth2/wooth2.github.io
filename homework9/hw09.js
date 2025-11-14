@@ -37,6 +37,9 @@ document.body.appendChild(stats.dom);
 // OrbitControls (camera 변경 시 다시 생성해야 해서 let)
 let orbitControls = new OrbitControls(camera, renderer.domElement);
 orbitControls.enableDamping = true;
+orbitControls.screenSpacePanning = false;
+orbitControls.target.set(0, 0, 0);
+orbitControls.update();
 
 // Geometry
 const sunGeometry = new THREE.SphereGeometry(10);
@@ -109,14 +112,14 @@ sunLight.position.set(0, 10, 0);
 scene.add(sunLight);
 
 const sunLightHelper = new THREE.PointLightHelper(sunLight);
-scene.add(sunLightHelper);
+//scene.add(sunLightHelper);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(70, 40, 50);
 scene.add(directionalLight);
 
 const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight);
-scene.add(directionalLightHelper);
+//scene.add(directionalLightHelper);
 
 const ambientLight = new THREE.AmbientLight(0x404040);
 scene.add(ambientLight);
@@ -155,6 +158,9 @@ const controls = new (function () {
       orbitControls.dispose();
       orbitControls = new OrbitControls(camera, renderer.domElement);
       orbitControls.enableDamping = true;
+      orbitControls.screenSpacePanning = false;
+      orbitControls.target.set(0, 0, 0);
+      orbitControls.update();
 
       this.perspective = 'Orthographic';
     } else {
@@ -172,6 +178,9 @@ const controls = new (function () {
       orbitControls.dispose();
       orbitControls = new OrbitControls(camera, renderer.domElement);
       orbitControls.enableDamping = true;
+      orbitControls.screenSpacePanning = false;
+      orbitControls.target.set(0, 0, 0);
+      orbitControls.update()
 
       this.perspective = 'Perspective';
     }
