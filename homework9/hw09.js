@@ -111,13 +111,9 @@ const sunLight = new THREE.PointLight(0xffff00, 500, 300);
 sunLight.position.set(0, 10, 0);
 scene.add(sunLight);
 
-const sunLightHelper = new THREE.PointLightHelper(sunLight);
-
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(70, 40, 50);
 scene.add(directionalLight);
-
-const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight);
 
 const ambientLight = new THREE.AmbientLight(0x404040);
 scene.add(ambientLight);
